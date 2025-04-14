@@ -17,6 +17,8 @@ class Main {
     private static startDateINPUT = document.getElementById("startdate-input") as HTMLInputElement;
     private static endDateINPUT = document.getElementById("enddate-input") as HTMLInputElement;
     private static descriptionINPUT = document.getElementById("description-input") as HTMLInputElement;
+    private static updateBTN = document.getElementById("update-btn") as HTMLButtonElement;
+    private static deleteBTN = document.getElementById("delete-btn") as HTMLButtonElement;
     private static cvList: CVList;
 
     public static async init(): Promise<void> {
@@ -40,9 +42,23 @@ class Main {
 
         await this.cvList.setList();
         
-        if (this.tableDataTBODY && this.popupDIV && this.hiddenidINPUT) {
+        if (this.tableDataTBODY && this.popupDIV) {
             this.cvList.render(this.tableDataTBODY, this.popupDIV, this.hiddenidINPUT, inputs);
         }
+
+        Main.updateBTN.addEventListener("click", async () => {
+            if(this.popupDIV && this.tableDataTBODY) {
+                await this.cvList.updateItem(this.hiddenidINPUT, inputs, this.popupDIV);
+                this.cvList.render(this.tableDataTBODY, this.popupDIV, this.hiddenidINPUT, inputs);
+            } 
+        });
+
+        Main.deleteBTN.addEventListener("click", async () => {
+            if(this.popupDIV && this.tableDataTBODY) {
+                await this.cvList.deleteItem(this.hiddenidINPUT!, this.popupDIV);
+                this.cvList.render(this.tableDataTBODY, this.popupDIV, this.hiddenidINPUT, inputs);
+            }
+        });
     }
 }
 

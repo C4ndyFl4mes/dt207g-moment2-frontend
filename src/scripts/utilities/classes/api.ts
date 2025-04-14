@@ -52,7 +52,7 @@ export class API {
         const resp: Response | null = await fetch(this.URL, {
             method: "DELETE",
             headers: this.header,
-            body: JSON.stringify(id)
+            body: JSON.stringify({id: id})
         });
         if (!resp) {
             return {valid: false, message: "Fick ingen respons."};

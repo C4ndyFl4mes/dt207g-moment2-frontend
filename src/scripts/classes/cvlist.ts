@@ -20,6 +20,35 @@ export class CVList {
         }
     }
 
+    public async updateItem(hiddenidINPUT: HTMLInputElement, inputs: Array<HTMLInputElement>, popupDIV: HTMLElement) {
+        const item: ICVItem = {
+            id: Number(hiddenidINPUT.value),
+            companyname: inputs[0].value,
+            jobtitle: inputs[1].value,
+            location: inputs[2].value,
+            startdate: inputs[3].value,
+            enddate: inputs[4].value,
+            description: inputs[5].value
+        }
+        const error: IError = await API.edit(item);
+        if (error.valid) {
+            popupDIV.style.display = "none";
+            await this.setList();
+        } else {
+            console.log(error);
+        }
+    }
+
+    public async deleteItem(hiddenidINPUT: HTMLInputElement, popupDIV: HTMLElement) {
+        const error: IError = await API.remove(Number(hiddenidINPUT.value));
+        if (error.valid) {
+            popupDIV.style.display = "none";
+            await this.setList();
+        } else {
+            console.log(error);
+        }
+    }
+
     public render(parentEL: HTMLElement, popupDIV: HTMLElement, hiddenidINPUT: HTMLInputElement, inputs: Array<HTMLInputElement>): void {
         parentEL.innerHTML = "";
         console.log(this.list);
@@ -39,8 +68,7 @@ export class CVList {
 
             mainTR.addEventListener("click", () => {
                 popupDIV.style.display = "flex";
-                const id: number | undefined = item.id;
-                if (id) hiddenidINPUT.value = String(id);
+                hiddenidINPUT.value = String(item.id);
 
                 inputs[0].value = item.companyname;
                 inputs[1].value = item.jobtitle;
@@ -48,7 +76,6 @@ export class CVList {
                 inputs[3].value = formattedStartDate;
                 inputs[4].value = formattedEndDate;
                 inputs[5].value = item.description;
-                
             });
             parentEL.appendChild(mainTR);
         });
