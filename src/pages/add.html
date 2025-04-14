@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/styles/main.scss">
-    <script type="module" src="/src/scripts/add.ts"></script>
+    <script type="module" src="/src/scripts/main.ts"></script>
     <title>Lägg till</title>
 </head>
 
@@ -26,7 +26,41 @@
             </ul>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <h1>Lägg till i CV-listan</h1>
+        <div class="form-div">
+            <label>
+                <span>Företagsnamn:</span>
+                <input type="text" id="companyname-input">
+            </label>
+            <label>
+                <span>Arbetsuppgift:</span>
+                <input type="text" id="jobtitle-input">
+            </label>
+            <label>
+                <span>Plats:</span>
+                <input type="text" id="location-input">
+            </label>
+            <label>
+                <span>Inledningsdatum:</span>
+                <input type="date" id="startdate-input">
+            </label>
+            <label>
+                <span>Avgångsdatum:</span>
+                <input type="date" id="enddate-input">
+            </label>
+            <label>
+                <span>Beskrivning</span>
+                <textarea id="description-input"></textarea>
+            </label>
+            <div>
+                <label>
+                    <span>Vill du lägga till?</span>
+                    <button id="add-btn">Lägg till</button>
+                </label>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

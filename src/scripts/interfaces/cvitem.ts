@@ -4,7 +4,7 @@
  */
 
 export interface ICVItem {
-    id: number;
+    id?: number;
     companyname: string;
     jobtitle: string;
     location: string;

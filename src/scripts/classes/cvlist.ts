@@ -20,7 +20,25 @@ export class CVList {
         }
     }
 
-    public async updateItem(hiddenidINPUT: HTMLInputElement, inputs: Array<HTMLInputElement>, popupDIV: HTMLElement) {
+    public async addItem(inputs: Array<HTMLInputElement>): Promise<void> {
+        const error: IError = await API.write({
+            companyname: inputs[0].value,
+            jobtitle: inputs[1].value,
+            location: inputs[2].value,
+            startdate: inputs[3].value,
+            enddate: inputs[4].value,
+            description: inputs[5].value
+        });
+
+        if (error.valid) {
+            await this.setList();
+            location.href = "/index.html";
+        } else {
+            console.log(error);
+        }
+    }
+
+    public async updateItem(hiddenidINPUT: HTMLInputElement, inputs: Array<HTMLInputElement>, popupDIV: HTMLElement): Promise<void> {
         const item: ICVItem = {
             id: Number(hiddenidINPUT.value),
             companyname: inputs[0].value,
@@ -39,7 +57,7 @@ export class CVList {
         }
     }
 
-    public async deleteItem(hiddenidINPUT: HTMLInputElement, popupDIV: HTMLElement) {
+    public async deleteItem(hiddenidINPUT: HTMLInputElement, popupDIV: HTMLElement): Promise<void> {
         const error: IError = await API.remove(Number(hiddenidINPUT.value));
         if (error.valid) {
             popupDIV.style.display = "none";
