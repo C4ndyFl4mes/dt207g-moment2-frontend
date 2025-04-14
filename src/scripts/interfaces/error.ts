@@ -5,5 +5,5 @@
 
 export interface IError {
     valid: boolean;
-    message: string;
+    message: {header: string, message: string};
 }
