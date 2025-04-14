@@ -5,7 +5,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html', // Main entry
-        about: 'src/pages/template.html', // Additional pages
+        add: 'src/pages/add.html',
+        about: 'src/pages/about.html' // Additional pages
       },
     },
   },

@@ -1,6 +1,6 @@
 // Main Content (main element)
 
-@use '../base/typography';
+@use "../base/typography";
 
 main {
     width: 95%;
@@ -9,4 +9,28 @@ main {
     margin: 0 auto;
 
     @extend %main-typography;
+}
+
+/* Overlay background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-box {
+    color: black;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
 }
