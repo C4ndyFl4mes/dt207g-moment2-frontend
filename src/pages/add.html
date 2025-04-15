@@ -11,13 +11,15 @@
 
 <body>
     <header>
-        <div class="top"></div>
+        <div class="top">
+            <p>Backend-baserad webbutveckling - moment 2 - Isaac Svedin</p>
+        </div>
         <nav>
             <ul>
                 <li>
                     <a href="/index.html">CV</a>
                 </li>
-                <li>
+                <li class="here">
                     <a href="/src/pages/add.html">Lägg till</a>
                 </li>
                 <li>
@@ -50,14 +52,12 @@
                 <input type="date" id="enddate-input">
             </label>
             <label>
-                <span>Beskrivning</span>
+                <span>Beskrivning:</span>
                 <textarea id="description-input"></textarea>
             </label>
             <div>
-                <label>
-                    <span>Vill du lägga till?</span>
-                    <button id="add-btn">Lägg till</button>
-                </label>
+                <span>Vill du lägga till?</span>
+                <button id="add-btn">Lägg till</button>
             </div>
             <div id="error-container"></div>
         </div>

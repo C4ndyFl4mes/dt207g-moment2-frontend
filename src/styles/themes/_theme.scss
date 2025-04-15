@@ -7,16 +7,16 @@
 
 // Shared values for themes, mostly placeholder as template.
 $base-theme: (
-    "link-normal": var.$link-normal-color,
-    "link-visited": var.$link-visited-color,
-    "link-active": var.$link-active-color
+    "link-normal": var.$dath-primary-fg-color,
+    "link-visited": var.$dath-primary-fg-color,
+    "link-active": var.$dath-primary-fg-color
     // ...
 );
 
 // Light theme
 $light-theme: (
-    "primary-bg-color": var.$lith-primary-bg-color,
-    "primary-fg-color": var.$lith-primary-fg-color
+    "primary-bg-color": var.$dath-primary-bg-color,
+    "primary-fg-color": var.$dath-primary-fg-color
     // ...
 );
 

@@ -1,1 +1,52 @@
 // Header
+
+header {
+    width: 100%;
+    height: fit-content;
+}
+
+// The container for the course and moment text.
+.top {
+    background-color: rgb(0, 140, 255);
+    padding: 1rem;
+    text-align: center;
+    p {
+        margin: 0;
+        font-weight: 700;
+    }
+}
+
+// The navigation menu.
+nav {
+    height: inherit;
+    ul {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 90%;
+        max-width: 600px;
+        height: inherit;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    li {
+        flex: 1;
+        background-color: rgb(1, 125, 226);
+
+        line-height: 3rem;
+        text-align: center;
+        display: flex;
+        transition: 0.2s background-color;
+    }
+    li>a {
+        flex: 1;
+        text-decoration: none;
+    }
+    li:hover {
+        background-color: rgb(0, 140, 255);
+    }
+    .here {
+        background-color: rgb(0, 140, 255) !important;
+    }
+}

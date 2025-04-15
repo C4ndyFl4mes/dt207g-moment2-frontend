@@ -11,10 +11,12 @@
 
 <body>
     <header>
-        <div class="top"></div>
+        <div class="top">
+            <p>Backend-baserad webbutveckling - moment 2 - Isaac Svedin</p>
+        </div>
         <nav>
             <ul>
-                <li>
+                <li class="here">
                     <a href="/index.html">CV</a>
                 </li>
                 <li>
@@ -75,18 +77,14 @@
                     <textarea id="description-input"></textarea>
                 </label>
                 <div>
-                    <label>
-                        <span>Vill du uppdatera?</span>
-                        <button id="update-btn">Uppdatera</button>
-                    </label>
+                    <span>Vill du uppdatera?</span>
+                    <button id="update-btn">Uppdatera</button>
                 </div>
             </div>
             <div class="popup-item">
                 <h2>Radera</h2>
-                <label>
-                    <span>Vill du radera?</span>
-                    <button id="delete-btn">Radera</button>
-                </label>
+                <span>Vill du radera?</span>
+                <button id="delete-btn">Radera</button>
             </div>
             <div class="popup-item" id="error-container"></div>
         </div>

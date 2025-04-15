@@ -6,31 +6,165 @@ main {
     width: 95%;
     max-width: 1200px;
 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
     margin: 0 auto;
 
     @extend %main-typography;
 }
 
-/* Overlay background */
+// On smaller screen makes the table horisontally scrollable.
+.table-container {
+    border: 2px solid black;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+}
+
+th {
+    border-right: 1px solid black;
+    background-color: rgb(6, 205, 255);
+    border-bottom: 2px solid black;
+}
+
+th:last-child {
+    border-right: none;
+}
+
+// A row of cv-item.
+.cv-item-tr {
+    height: 3rem;
+    background-color: rgb(171, 248, 242);
+    border-bottom: 2px solid black;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.25s background-color;
+    td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        white-space: nowrap;
+        border-right: 1px solid black;
+    }
+    td:last-child {
+        max-width: 10rem;
+        white-space: wrap;
+        border-right: none;
+    }
+}
+
+.cv-item-tr:hover {
+    background-color: rgb(6, 205, 255);
+}
+
+// Overlay background
 .popup-overlay {
+    overflow-y: auto;
     position: fixed;
     top: 0;
     left: 0;
+    padding-top: 1rem;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none; /* hidden by default */
     justify-content: center;
-    align-items: center;
+
     z-index: 1000;
 }
 
-/* Popup content */
+// Popup content
 .popup-box {
+    width: 100%;
+    max-width: 400px;
+    height: fit-content;
+
+    font-size: 1.2rem;
+
     color: black;
     background: white;
+
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    min-width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    .popup-item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+    }
+}
+
+// The following selected elements are for "forms" (no form element is used in the application).
+h2 {
+    margin: 0px;
+}
+label {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    cursor: pointer;
+}
+input,
+textarea,
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.3rem;
+}
+h1 {
+    justify-self: center;
+}
+
+.form-div {
+    background-color: rgb(18, 171, 209);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+// These two makes it so that the textarea and add-button have their own "row." 
+.form-div > label:has(textarea) {
+    width: 100%;
+    textarea {
+        width: 50%;
+        height: 5rem;
+    }
+}
+
+.form-div > div:has(button), .popup-item > div:has(button){
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    button {
+        width: 10rem;
+    }
+}
+
+// The has makes sure that the background color are only shown if there's an error.
+#error-container:has(article) {
+    background-color: rgba(255, 0, 0, 0.822);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    h3 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+    p {
+        margin-top: 0;
+    }
 }

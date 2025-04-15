@@ -115,7 +115,7 @@ export class CVList {
         parentEL.innerHTML = "";
         this.list.forEach(item => {
             const mainTR: HTMLElement = document.createElement("tr");
-            mainTR.className = "cv-item-maintr";
+            mainTR.className = "cv-item-tr";
             const formattedStartDate = (new Date(item.startdate)).toISOString().split("T")[0];
             const formattedEndDate = (new Date(item.enddate)).toISOString().split("T")[0];
             mainTR.innerHTML = `
