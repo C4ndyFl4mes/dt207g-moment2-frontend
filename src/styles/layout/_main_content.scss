@@ -160,6 +160,22 @@ h1 {
     color: white;
     padding: 0.5rem;
     border-radius: 10px;
+   
+}
+.about-articles {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(18, 171, 209);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    article {
+        width: 30rem;
+        text-align: justify;
+    }
+}
+article {
     h3 {
         margin-top: 0.5rem;
         margin-bottom: 0.2rem;
